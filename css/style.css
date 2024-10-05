@@ -1,0 +1,519 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Hero section */
+.hero {
+    background-image: url('../assets/image/logo-header.png');
+    background-size: cover;
+    height: 70vh;
+    position: relative;
+    z-index: 1;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    background: linear-gradient(to right, #000, transparent);
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Navbar  */
+.navbar {
+    background-color: transparent !important;
+    box-shadow: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+
+
+}
+
+.navbar .navbar-nav>li {
+    padding: 0 10px;
+}
+
+.navbar .navbar-nav>li>.nav-link {
+    padding: 0 5px;
+    line-height: 35px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 3px;
+}
+
+
+
+.navbar .navbar-nav>li>.nav-link:hover::after {
+    background-color: #ff6767;
+}
+
+
+/* Color del texto blanco */
+.navbar .nav-link,
+.navbar #brandText {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+/* Color del icono blanco */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    transition: background-image 0.3s ease;
+}
+
+/* Cambios al hacer scroll más de 50px */
+.scrolled {
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Color del texto y el icono en modo "scrolled" */
+.scrolled .nav-link,
+.scrolled #brandText {
+    color: black !important;
+}
+
+.scrolled .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
+.pt-7 {
+    padding-top: 80px;
+}
+
+.text-md {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* Media queries para pantallas movile */
+@media (max-width: 767px) {
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.5);
+        /* Fondo semitransparente */
+        backdrop-filter: blur(10px);
+    }
+
+    /* Cambios en el color del icono cuando el navbar es scrolled en móviles */
+    .scrolled .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+}
+
+@media (max-width: 867px) {
+
+    .about h2 {
+        font-size: 2rem;
+        line-height: 1.2;
+        text-align: center;
+        margin-bottom: 30px;
+
+    }
+}
+
+
+
+
+/* Icons */
+.wrapper {
+    display: inline-flex;
+}
+
+.wrapper .icon {
+    margin: 0 20px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    text-decoration: none;
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon span {
+    display: block;
+    height: 60px;
+    width: 60px;
+    color: #000;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon span i {
+    line-height: 60px;
+    font-size: 25px;
+}
+
+.wrapper .icon .tooltip {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    background: #fff;
+    color: #fff;
+    padding: 10px 18px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 25px;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+    top: -70px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.icon .tooltip:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    background: inherit;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.wrapper .icon:hover span {
+    color: #fff;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+}
+
+.wrapper .linkedin:hover span,
+.wrapper .linkedin:hover .tooltip {
+    background: #3B5999;
+}
+
+.wrapper .whatsapp:hover span,
+.wrapper .whatsapp:hover .tooltip {
+    background: #217d3e;
+}
+
+.wrapper .file:hover span,
+.wrapper .file:hover .tooltip {
+    background: #728da1;
+}
+
+
+
+.wrapper .github:hover span,
+.wrapper .github:hover .tooltip {
+    background: #333;
+}
+
+.wrapper .envelope:hover span,
+.wrapper .envelope:hover .tooltip {
+    background: #DE463B;
+}
+
+
+.social {
+    background: linear-gradient(315deg, #f5f5f5 0%, #b0b9c41c 74%);
+    height: 100%;
+    overflow: hidden;
+    padding: 20px;
+
+}
+
+
+/* Sección Sobre Mi */
+
+.icon-geometric {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.img-geometric-1 {
+    top: 95px;
+}
+
+.img-geometric-2 {
+    top: 144px;
+    left: 60px;
+}
+
+.img-geometric-4 {
+    top: 50px;
+    right: 60px;
+}
+
+.img-geometric-3 {
+    bottom: 0;
+    left: 40px;
+}
+
+
+.decoration-start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 294px;
+    height: 294px;
+
+}
+
+/* services  */
+.services {
+    background: #f2f2f2;
+    padding: 80px 0;
+    text-align: center;
+}
+
+/* media query  */
+
+@media (max-width: 850px) {
+    .services {
+        padding: 40px 0;
+    }
+
+    .services h3 {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+}
+
+
+.service-description p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.services-content {
+    padding: 40px;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.services-content:hover {
+    box-shadow: 7px 7px 11px -4px rgba(0, 0, 0, 0.75);
+}
+
+.box-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 5px;
+
+}
+
+.box-icon i {
+    font-size: 36px;
+
+}
+
+.service-description {
+    text-align: start;
+
+}
+
+
+/* Colores para cada servicio */
+.service-design {
+    background-color: #f0f8ff;
+}
+
+.service-responsive {
+    background-color: #d2ceff;
+}
+
+.service-development {
+    background-color: #e0f7fa;
+}
+
+.service-creative {
+    background-color: #ffecb3;
+}
+
+.service-images {
+    background-color: #fce4ec;
+}
+
+.service-seo {
+    background-color: #e8f5e9;
+}
+
+
+
+
+/* Estilos para el carrusel */
+.owl-carousel .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 150px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.owl-carousel .item:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.owl-carousel .icon-box {
+    margin-right: 15px;
+}
+
+.owl-carousel .info-box {
+    flex: 1;
+    /* Ocupa el espacio restante */
+}
+
+.owl-carousel .icon-box img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+/* Elimina las flechas de navegación y mantiene solo los puntos de navegación */
+.owl-nav {
+    display: none;
+}
+
+
+.skills {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-absolute {
+    position: absolute;
+}
+
+.absolute-one {
+    width: 250px;
+    height: auto;
+    left: 0;
+
+}
+
+.absolute-two {
+    width: 400px;
+    height: auto;
+    bottom: 120px;
+    right: -200px;
+}
+
+
+
+/* projects */
+.card-project {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    transition: 0.5s all ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Asegúrate de cubrir toda la tarjeta */
+    background:
+        linear-gradient(to bottom,
+            rgba(13, 36, 63, 0.3),
+            rgba(13, 36, 63, 1));
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-project:hover::before {
+    opacity: 1;
+}
+
+.card-project img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card-body {
+    position: absolute;
+    /* Cambiado a absolute para controlar la visibilidad */
+    bottom: 0;
+    /* Alinea al fondo de la tarjeta */
+    left: 0;
+    right: 0;
+    color: #fff;
+    z-index: 4;
+    opacity: 0;
+    /* Oculto por defecto */
+    transition: opacity 0.5s ease, transform 0.3s ease;
+    transform: translateY(100px);
+}
+
+.card-project:hover .card-body {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-project .btn {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+.card-project .btn:hover {
+    background-color: #5fc068;
+    color: #fff;
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
+}
