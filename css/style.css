@@ -17,6 +17,23 @@ body {
     z-index: 1;
 }
 
+@media (max-width: 920px) {
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero p,
+    .hero span,
+    .hero h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}
+
+
+
+
 .hero::after {
     content: "";
     position: absolute;
@@ -287,6 +304,40 @@ body {
 
 }
 
+@media (max-width: 1240px) {
+
+
+    .img-geometric-1 {
+        top: 20px;
+    }
+
+    .img-geometric-2 {
+        top: 10px;
+        left: 40px;
+        border: 1px solid #eee;
+    }
+
+    .img-geometric-4 {
+        top: 70px;
+        right: 80px;
+    }
+
+    .img-geometric-3 {
+        bottom: 0;
+        left: 40px;
+    }
+
+
+    .decoration-start {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 294px;
+        height: 294px;
+
+    }
+}
+
 /* services  */
 .services {
     background: #f2f2f2;
@@ -378,65 +429,39 @@ body {
 
 
 /* Estilos para el carrusel */
-.owl-carousel .item {
+
+
+
+.skills .item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    height: 150px;
     border-radius: 5px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.owl-carousel .item:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-
-
-.owl-carousel .icon-box {
-    margin-right: 15px;
-}
-
-.owl-carousel .info-box {
-    flex: 1;
-    /* Ocupa el espacio restante */
-}
-
-.owl-carousel .icon-box img {
-    max-width: 50px;
-    max-height: 50px;
-}
-
-/* Elimina las flechas de navegación y mantiene solo los puntos de navegación */
-.owl-nav {
-    display: none;
-}
-
-
-.skills {
-    position: relative;
-    overflow: hidden;
-}
-
-.img-absolute {
-    position: absolute;
-}
-
-.absolute-one {
-    width: 250px;
+    padding: 10px;
     height: auto;
-    left: 0;
-
 }
 
-.absolute-two {
-    width: 400px;
-    height: auto;
-    bottom: 120px;
-    right: -200px;
+
+
+
+@media (max-width: 1245px) {
+
+    .skills .item {
+
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skills .info-box {
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .icon-frontend {
+        display: flex;
+        margin: 1rem;
+    }
 }
+
 
 
 
